@@ -1,0 +1,85 @@
+<!-- ======= Top Bar ======= -->
+<section id="topbar" class="d-none d-lg-block">
+	<div class="container clearfix">
+		<div class="social-links float-right">
+			<a href="https://www.facebook.com/owlbook" class="facebook">
+				<i class="icofont-facebook"></i>
+			</a>
+			<a href="#" class="instagram">
+				<i class="icofont-instagram"></i>
+			</a>
+		</a>
+	</div>
+	<div class="contact-info float-right">
+		<i class="icofont-envelope"></i>
+		<a href="mailto:OwlSocieties@gmail.com">OwlSocieties@gmail.com</a>
+	</div>
+</div>
+</section><!-- ======= Header ======= --><header id="header">
+<div class="container">
+
+	<div class="logo float-left">
+		{# <h1 class="text-light"><a href="index.html"><span>Mamba</span></a></h1> #}
+		<!-- Uncomment below if you prefer to use an image logo -->
+	<img src="{{asset('assets/images/owl.jpg')}}" alt="" class="img-fluid"> </a>
+</div>
+
+<nav class="nav-menu float-right d-none d-lg-block">
+	<ul>
+		<li>
+			<a class="nav-link" href="{{path('accueil') }}">Accueil</a>
+		</li>
+        <li>
+			<a class="nav-link" href="{{path('recherche') }}">Recherche</a>
+		</li>
+        <li class="drop-down">
+			<a href="{{path('livres') }}">Livres
+			</a>
+			{# <ul>
+				<li><a href="{{path('bD')}}">Bande Dessiné</a></li>
+				<li><a href="{{path('livrePoche')}}">Livre de Poche</a></li>
+				<li><a href="{{path('manga')}}">Manga</a></li>
+				<li><a href="{{path('magasine')}}">Magasine</a></li>
+				<li><a href="{{path('roman')}}">Roman</a></li>
+				
+			</ul> #}
+		</li>
+		
+
+		{# {% if (app.user.email is defined) %}
+			{% if is_granted('ROLE_ADMIN') %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('admin_index')}}">Administration</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('annuaire')}}">Annuaire</a>
+				</li>
+			{% endif %}
+
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('profil') }}">Profil</a>
+			</li>
+		{% endif %}#}
+		<li>
+			<a href="{{path('contact') }}">Contact</a>
+		</li>
+		{% if (app.user.email is defined) %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_logout') }}">Déconnexion</a>
+			</li>
+
+		{% else %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_login') }}">Connexion</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('app_register') }}">Inscription</a>
+			</li>
+		{% endif %} 
+
+	</ul>
+</nav>
+<!-- .nav-menu -->
+</div>
+</header>
+<!-- End Header -->
