@@ -19,9 +19,9 @@
 <div class="container">
 
 	<div class="logo float-left">
-		{# <h1 class="text-light"><a href="index.html"><span>Mamba</span></a></h1> #}
+		<h1 class="text-light"><a href="index.html"><span>OwlBook</span></a></h1>
 		<!-- Uncomment below if you prefer to use an image logo -->
-	<img src="{{asset('assets/images/owl.jpg')}}" alt="" class="img-fluid"> </a>
+	{# <img src="{{asset('assets/images/owl.png')}}" alt="" class="img-fluid"> </a> #}
 </div>
 
 <nav class="nav-menu float-right d-none d-lg-block">
@@ -33,41 +33,41 @@
 			<a class="nav-link" href="{{path('recherche') }}">Recherche</a>
 		</li>
         <li class="drop-down">
-			<a href="{{path('livres') }}">Livres
+			<a href="{{path('livre_index') }}">Livre
 			</a>
-			{# <ul>
-				<li><a href="{{path('bD')}}">Bande Dessiné</a></li>
-				<li><a href="{{path('livrePoche')}}">Livre de Poche</a></li>
+			<ul>
+				<li><a href="{{path('ParCategorie')}}">Bande Dessiné</a></li>
+				{# <li><a href="{{path('livrePoche')}}">Livre de Poche</a></li>
 				<li><a href="{{path('manga')}}">Manga</a></li>
 				<li><a href="{{path('magasine')}}">Magasine</a></li>
-				<li><a href="{{path('roman')}}">Roman</a></li>
+				<li><a href="{{path('roman')}}">Roman</a></li> #}
 				
-			</ul> #}
+			</ul>
 		</li>
 		
 
-		{# {% if (app.user.email is defined) %}
+		{% if (app.user.email is defined) %}
 			{% if is_granted('ROLE_ADMIN') %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('admin_index')}}">Administration</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="{{path('annuaire')}}">Annuaire</a>
 				</li>
 			{% endif %}
 
 			<li class="nav-item">
 				<a class="nav-link" href="{{path('profil') }}">Profil</a>
 			</li>
-		{% endif %}#}
-		<li>
+		{% endif %}
+		{# <li>
 			<a href="{{path('contact') }}">Contact</a>
-		</li>
+		</li> #}
 		{% if (app.user.email is defined) %}
+			<li class="nav-item">
+				<a class="nav-link" href="{{path('profil') }}">Profil</a>
+			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="{{path('app_logout') }}">Déconnexion</a>
 			</li>
-
+			
 		{% else %}
 			<li class="nav-item">
 				<a class="nav-link" href="{{path('app_login') }}">Connexion</a>
@@ -83,3 +83,65 @@
 </div>
 </header>
 <!-- End Header -->
+<section id="hero"><div class="hero-container">
+<div id="heroCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+
+	<ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+	<div
+		class="carousel-inner" role="listbox">
+
+		<!-- Slide 1 -->
+		<div class="carousel-item active" style="background-image: url({{asset('assets/images/slide/slide-1.jpg')}});">
+			<div class="carousel-container">
+				<div class="carousel-content container">
+					<h2 class="animated fadeInDown"></h2>
+					<p class="animated fadeInUp">											
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Slide 2 -->
+		<div class="carousel-item" style="background-image: url({{asset('assets/images/slide/slide-2.jpg')}});">
+			<div class="carousel-container">
+				<div class="carousel-content container">
+					<h2 class="animated fadeInDown"></h2>
+					<p class="animated fadeInUp">	
+					</p>
+					</div>
+			</div>
+		</div>
+
+		<!-- Slide 3 -->
+		<div class="carousel-item" style="background-image: url({{asset('assets/images/slide/slide-3.jpg')}});">
+			<div class="carousel-container">
+				<div class="carousel-content container">
+					<h2 class="animated fadeInDown"></h2>
+					<p class="animated fadeInUp">										</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Slide 4 -->
+		<div class="carousel-item" style="background-image: url({{asset('assets/images/slide/slide-4.jpg')}});">
+			<div class="carousel-container">
+				<div class="carousel-content container">
+					<h2 class="animated fadeInDown"></h2>
+					<p class="animated fadeInUp"></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon icofont-rounded-left" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon icofont-rounded-right" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
+
+</div></div></section><!-- End Hero -->

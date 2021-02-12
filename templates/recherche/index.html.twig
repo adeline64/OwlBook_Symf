@@ -6,16 +6,36 @@
 
 {% block body %}
 
+<br>
+<div class="row justify-content-center">
+			<div class="col-12 col-md-10 col-lg-8">
+				<div class="section-title">
+					<h2>Recherche des livres</h2>
+				</div>
+				</div>
+				</div>
+
+<section id="about" class="about">
+			<article class="container">
+
+				<div class="row no-gutters">
+					<div class="col-lg-12 video-box" style="text-align:center; margin:auto;">
+						<img src="assets/images/rechercher.jpg" class="img-fluid" alt="">
+					</div>
+																	
+				</div>
+
+			</article>
+		</section>
+
+
 
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 	<div class="container">
 		<br/>
 		<div class="row justify-content-center">
 			<div class="col-12 col-md-10 col-lg-8">
-				<div class="section-title">
-					<h2>Liste des livres</h2>
-				</div>
-				{# <form class="card card-sm" action="{{ path("search") }}"> #}
+				<form class="card card-sm"  action="{{ path("search") }}">
 					<div class="card-body row no-gutters align-items-center">
 						<div class="col-auto">
 							<i class="fas fa-search h4 text-body"></i>
@@ -36,40 +56,39 @@
 		</div>
 	</div>
 
-	{# <section id="about" class="about">
-	
-		<div class="container">
-
-			<div class="row no-gutters">
-
-				<div class="col-lg-6 d-flex flex-column justify-content-center about-content">
-
-					<div class="section-title" style="text-align:left">
-
-						{% for livre in livres %}
-							<h2>{{ livre.Titre }}</h2>
-
-							<br>
-							Sous titre :
-							{{ livre.soustitre }}
-							<br>
-							{{ livre.image }}
-							<br>
-							
-							<br>
-							<a href="{{ livre.livre }}">{{ livre.livre }}</a>
-						{% else %}
-							<p colspan="9">Aucun livre trouvé</p>
-
-						{% endfor %}
-						<br>
+	<div class="container-fluid bg-1 text-center">
+		<br>
+		<div class="row">
+		
+			{% if (livres is defined) %}
+			
+				{% set compteur = 0 %}
+				{% for livre in livres %}
+					{% if compteur == 3 %}
 					</div>
-				</div>
+					<div class="row">
+					{% endif %}
+					<div
+						class="col-sm-4">
+						<h2>Titre :
+							{{ livre.titre }}</h2>
+						<br><br>
+						<img src="{{asset('assets/images/'~livre.image)}}" class="img-responsive margin" alt="Image">
+						<br><br>
 
-			</div>
+						<h3>Sous titre :
+							{{ livre.soustitre }}</h3>
+					</div>
+					<br>
+
+
+					{% set compteur = compteur + 1 %}
+					<br>
+				{% endfor %}
+
+			{% else %}
+				<p>pas de livres</p> 
+			{% endif %}
 		</div>
-
 	</div>
-</section> #}
-<br>
 {% endblock %}

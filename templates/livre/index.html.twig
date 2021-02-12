@@ -1,20 +1,81 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LivreController!{% endblock %}
+{% block title %}Livre index
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<h1>Livre</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	{# <table class="table">
+		        <thead>
+		            <tr>
+		                <th>Id</th>
+		                <th>Titre</th>
+		                <th>Sous_titre</th>
+		                <th>Tome</th>
+		                <th>Resume</th>
+		                <th>Image</th>
+		                <th>Isbn</th>
+		                <th>Nb_page</th>
+		                <th>actions</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		        {% for livre in livres %}
+		            <tr>
+		                <td>{{ livre.id }}</td>
+		                <td>{{ livre.titre }}</td>
+		                <td>{{ livre.sousTitre }}</td>
+		                <td>{{ livre.tome }}</td>
+		                <td>{{ livre.resume }}</td>
+		                <td>{{ livre.image }}</td>
+		                <td>{{ livre.isbn }}</td>
+		                <td>{{ livre.nbPage }}</td>
+		                <td>
+		                    <a href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
+		                    <a href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+		                </td>
+		            </tr>
+		        {% else %}
+		            <tr>
+		                <td colspan="9">no records found</td>
+		            </tr>
+		        {% endfor %}
+		        </tbody>
+		    </table> #}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/var/www/html/symfony/owlbook/src/Controller/LivreController.php'|file_link(0) }}">src/Controller/LivreController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/var/www/html/symfony/owlbook/templates/livre/index.html.twig'|file_link(0) }}">templates/livre/index.html.twig</a></code></li>
-    </ul>
-</div>
+	<div class="container-fluid bg-1 text-center">
+		<br>
+		<div class="row">
+			{% if (livres is defined) %}
+				{% set compteur = 0 %}
+				{% for livre in livres %}
+					{% if compteur == 3 %}
+					</div>
+					<div class="row">
+					{% endif %}
+					<div
+						class="col-sm-4">
+						{# <p>{{ livre }}</p> #}
+						<h2>Titre :
+							{{ livre.Titre }}</h2>
+						<br><br>
+						<img src="{{asset('assets/images/'~livre.image)}}" class="img-responsive margin" alt="Image">
+						<br><br>
+
+						<h3>Sous titre :
+							{{ livre.soustitre }}</h3>
+					</div>
+					<br>
+
+
+					{% set compteur = compteur + 1 %}
+					<br>
+				{% endfor %}
+
+			{% else %}
+				pas de livres
+			{% endif %}
+		</div>
+	</div>
 {% endblock %}
