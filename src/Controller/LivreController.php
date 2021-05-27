@@ -22,31 +22,31 @@ class LivreController extends AbstractController
     {
         // dd($livreRepository->findAll());
         return $this->render('livre/index.html.twig', [
-            'livres' => $livreRepository->findByTitre(),
+            'livres' => $livreRepository->findAll(),
         ]);
     }
 
-    /**
-     * @Route("/categorie", name="ParCategorie")
-     */
+    // /**
+    //  * @Route("/categorie", name="ParCategorie")
+    //  */
 
      
-    public function ParCategorie(LivreRepository $livreRepository, Request $request)
-    {
+    // public function ParCategorie(LivreRepository $livreRepository, Request $request)
+    // {
 
-       $search = '%'.$request->query->get('search').'%';
-        $result = $livreRepository->createQueryBuilder('o')
-            ->where('o.categorie LIKE :categorie')
-            ->setParameter('categorie', 'manga')
-            ->getQuery()
-            ->getResult();
+    //    $search = '%'.$request->query->get('search').'%';
+    //     $result = $livreRepository->createQueryBuilder('o')
+    //         ->where('o.categorie LIKE :categorie')
+    //         ->setParameter('categorie', 'manga')
+    //         ->getQuery()
+    //         ->getResult();
 
-            // dd($result);
+    //         // dd($result);
 
-        return $this->render('recherche/index.html.twig', [
-            'livres' => $result,
-        ]);
-    }
+    //     return $this->render('recherche/index.html.twig', [
+    //         'livres' => $result,
+    //     ]);
+    // }
 
 
 

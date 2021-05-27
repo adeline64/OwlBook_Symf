@@ -35,14 +35,7 @@
         <li class="drop-down">
 			<a href="{{path('livre_index') }}">Livre
 			</a>
-			<ul>
-				<li><a href="{{path('ParCategorie')}}">Bande Dessiné</a></li>
-				{# <li><a href="{{path('livrePoche')}}">Livre de Poche</a></li>
-				<li><a href="{{path('manga')}}">Manga</a></li>
-				<li><a href="{{path('magasine')}}">Magasine</a></li>
-				<li><a href="{{path('roman')}}">Roman</a></li> #}
-				
-			</ul>
+			{{ render(path('categorie')) }}
 		</li>
 		
 

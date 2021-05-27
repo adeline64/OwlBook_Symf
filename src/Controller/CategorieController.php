@@ -4,17 +4,19 @@ namespace App\Controller;
 
 use App\Repository\CategorieRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AccueilController extends AbstractController
+class CategorieController extends AbstractController
 {
     /**
-     * @Route("/", name="accueil")
+     * @Route("/categorie", name="categorie")
      */
-    public function index(CategorieRepository $categorieRepository)
+    public function index(CategorieRepository $categorieRepository): Response
     {
+        
         $categories = $categorieRepository->findAll();
-        return $this->render('accueil/index.html.twig', [
+        return $this->render('categorie/index.html.twig', [
             'categories' => $categories,
         ]);
     }
